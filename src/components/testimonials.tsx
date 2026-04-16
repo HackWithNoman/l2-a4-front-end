@@ -65,7 +65,7 @@ const Testimonials = () => (
   <div className="flex min-h-screen items-center justify-center py-12">
     <div className="h-full w-full">
       <h2 className="text-pretty px-6 text-center font-satoshi font-semibold text-4xl tracking-[-0.03em] md:text-5xl">
-        Success Stories
+        Testimonials
       </h2>
       <p className="mt-3.5 px-6 text-center text-muted-foreground text-xl tracking-[-0.015em] md:text-2xl">
         Real stories from people who use and love our product every day
