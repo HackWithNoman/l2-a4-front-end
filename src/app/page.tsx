@@ -1,6 +1,5 @@
 import Categories from "@/components/home/categories";
 import CTA from "@/components/home/cta";
-import Footer from "@/components/home/footer";
 import Hero from "@/components/home/hero";
 import HowItWorks from "@/components/home/how-It-works";
 import Stats from "@/components/home/stats";
@@ -17,7 +16,6 @@ export default function Home() {
       <Testimonials />
       <Stats />
       <CTA />
-      <Footer />
     </div>
   );
 }
