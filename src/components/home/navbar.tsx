@@ -1,17 +1,25 @@
-import { Search, SunIcon } from "lucide-react";
+import { Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Logo } from "@/components/logo";
-import { NavMenu } from "@/components/nav-menu";
-import { NavigationSheet } from "@/components/navigation-sheet";
+import { Logo } from "@/components/home/logo";
+import { NavMenu } from "@/components/home/nav-menu";
+import { NavigationSheet } from "@/components/home/navigation-sheet";
 import { Input } from "@/components/ui/input";
+import Link from "next/link";
 
 const Navbar = () => {
   return (
     <nav className="h-16 border-b bg-background">
       <div className="mx-auto flex h-full max-w-(--breakpoint-xl) items-center justify-between px-4 sm:px-6 lg:px-8">
         <div className="flex items-center gap-12">
-          <Logo />
+          <Link href="/">
+            <Logo />
+          </Link>
 
+          {/* Desktop Menu */}
+          <NavMenu className="hidden md:block" />
+        </div>
+
+        <div className="flex items-center gap-3">
           <div className="relative hidden md:block">
             <Search className="absolute inset-y-0 left-2.5 my-auto h-5 w-5" />
             <Input
@@ -25,20 +33,10 @@ const Navbar = () => {
           >
             <Search className="h-5! w-5!" />
           </Button>
-
-          {/* Desktop Menu */}
-          <NavMenu className="hidden md:block" />
-        </div>
-
-        <div className="flex items-center gap-3">
           <Button className="hidden sm:inline-flex" variant="outline">
             Sign In
           </Button>
           <Button>Sign Up</Button>
-          <Button size="icon" variant="outline">
-            <SunIcon />
-          </Button>
-
           {/* Mobile Menu */}
           <div className="md:hidden">
             <NavigationSheet />
