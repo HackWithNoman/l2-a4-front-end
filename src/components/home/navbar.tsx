@@ -33,10 +33,12 @@ const Navbar = () => {
           >
             <Search className="h-5! w-5!" />
           </Button>
-          <Button className="hidden sm:inline-flex" variant="outline">
-            Sign In
+          <Button className="hidden sm:inline-flex" variant="outline" asChild>
+            <Link href="/signIn">Sign In</Link>
           </Button>
-          <Button>Sign Up</Button>
+          <Button asChild>
+            <Link href="/signUp">Sign Up</Link>
+          </Button>
           {/* Mobile Menu */}
           <div className="md:hidden">
             <NavigationSheet />
