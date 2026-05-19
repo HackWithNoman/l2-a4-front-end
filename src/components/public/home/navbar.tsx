@@ -1,8 +1,8 @@
 import { Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Logo } from "@/components/home/logo";
-import { NavMenu } from "@/components/home/nav-menu";
-import { NavigationSheet } from "@/components/home/navigation-sheet";
+import { Logo } from "@/components/public/home/logo";
+import { NavMenu } from "@/components/public/home/nav-menu";
+import { NavigationSheet } from "@/components/public/home/navigation-sheet";
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
 

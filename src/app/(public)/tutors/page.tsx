@@ -1,4 +1,4 @@
-import Tutors from "@/components/tutors/tutors";
+import Tutors from "@/components/public/tutors/tutors";
 
 function TutorsPage() {
   return (
