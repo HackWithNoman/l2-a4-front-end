@@ -11,6 +11,7 @@ import {
 import { cn } from "@/lib/utils"; // shadcn's standard utility for class merging
 import { useState } from "react";
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 
 interface SidebarProps extends React.HTMLAttributes<HTMLDivElement> {}
 
@@ -79,7 +80,7 @@ export function Sidebar({ className }: SidebarProps) {
         {navItems.map((item, index) => {
           const Icon = item.icon;
           return (
-            <a
+            <Link
               key={index}
               href={item.href}
               className={cn(
@@ -109,7 +110,7 @@ export function Sidebar({ className }: SidebarProps) {
                   {item.label}
                 </div>
               )}
-            </a>
+            </Link>
           );
         })}
       </nav>

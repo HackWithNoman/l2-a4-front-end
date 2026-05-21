@@ -1,5 +1,11 @@
+import { UsersTable } from "@/components/admin/users-table";
+
 function page() {
-  return <div>this is the users page</div>;
+  return (
+    <div>
+      <UsersTable />
+    </div>
+  );
 }
 
 export default page;

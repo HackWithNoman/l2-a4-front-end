@@ -20,7 +20,7 @@ import { useRouter } from "next/navigation";
 
 const formSchema = z.object({
   email: z.string().email(),
-  password: z.string().min(5, "Password must be at least 8 characters long"),
+  password: z.string().min(4, "Password must be at least 4 characters long"),
 });
 
 const SignIn = () => {
