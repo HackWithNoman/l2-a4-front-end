@@ -1,110 +1,97 @@
-import {
-  BookCheck,
-  ChartPie,
-  FolderSync,
-  Goal,
-  Users,
-  Zap,
-} from "lucide-react";
-import Link from "next/link";
+﻿"use client";
 
-const features = [
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+
+const categories = [
   {
-    icon: Goal,
-    title: "Identify Opportunities",
-    description:
-      "Easily uncover untapped areas to explore and expand your reach.",
-    image: "https://www.fffuel.co/images/dddepth-preview/dddepth-051.jpg",
+    title: "Development & Coding",
+    description: "Master software engineering, algorithms, and web development with industry experts.",
+    tags: ["React 19", "Next.js 16", "Python AI"],
+    color: "bg-primary",
+    link: "/tutors?category=development",
   },
   {
-    icon: BookCheck,
-    title: "Build Authority",
-    description: "Create valuable content that resonates and inspires trust.",
-    image: "https://www.fffuel.co/images/dddepth-preview/dddepth-248.jpg",
+    title: "Languages",
+    description: "Build fluency in English, Spanish, Mandarin, and more with native-speaking educators.",
+    tags: ["ESL", "IELTS", "Conversational"],
+    color: "bg-accent",
+    link: "/tutors?category=languages",
   },
   {
-    icon: ChartPie,
-    title: "Instant Insights",
-    description: "Gain immediate, actionable insights with a quick glance.",
-    image: "https://www.fffuel.co/images/dddepth-preview/dddepth-177.jpg",
+    title: "Mathematics",
+    description: "From algebra to calculus — work through problems with expert mathematicians.",
+    tags: ["Calculus", "Statistics", "Linear Algebra"],
+    color: "bg-primary",
+    link: "/tutors?category=math",
   },
   {
-    icon: Users,
-    title: "Engage with Your Audience",
-    description: "Boost audience engagement with interactive features.",
-    image: "https://www.fffuel.co/images/dddepth-preview/dddepth-012.jpg",
+    title: "Test Prep",
+    description: "Ace the SAT, IELTS, TOEFL, and GRE with structured strategies from top scorers.",
+    tags: ["SAT", "IELTS", "GRE"],
+    color: "bg-accent",
+    link: "/tutors?category=prep",
   },
   {
-    icon: FolderSync,
-    title: "Automate Your Workflow",
-    description: "Streamline your processes by automating repetitive tasks.",
-    image: "https://www.fffuel.co/images/dddepth-preview/dddepth-045.jpg",
-  },
-  {
-    icon: Zap,
-    title: "Accelerate Growth",
-    description: "Supercharge your growth by implementing strategies.",
-    image: "https://www.fffuel.co/images/dddepth-preview/dddepth-028.jpg",
-  },
-  {
-    icon: BookCheck,
-    title: "Build Authority",
-    description: "Create valuable content that resonates and inspires trust.",
-    image: "https://www.fffuel.co/images/dddepth-preview/dddepth-031.jpg",
-  },
-  {
-    icon: ChartPie,
-    title: "Instant Insights",
-    description: "Gain immediate, actionable insights with a quick glance.",
-    image: "https://www.fffuel.co/images/dddepth-preview/dddepth-034.jpg",
-  },
-  {
-    icon: Goal,
-    title: "Identify Opportunities",
-    description:
-      "Easily uncover untapped areas to explore and expand your reach.",
-    image: "https://www.fffuel.co/images/dddepth-preview/dddepth-059.jpg",
+    title: "Science & Engineering",
+    description: "Explore physics, chemistry, and biology with PhD researchers and expert educators.",
+    tags: ["Organic Chem", "AP Physics", "Cell Biology"],
+    color: "bg-primary",
+    link: "/tutors?category=science",
   },
 ];
 
-const Categories = () => {
+export const Categories = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center">
-      <div className="w-full max-w-(--breakpoint-xl) px-6 py-10">
-        <h2 className="text-pretty font-satoshi font-semibold text-4xl tracking-[-0.03em] sm:mx-auto sm:max-w-xl sm:text-center md:text-[2.75rem] md:leading-[1.2]">
-          Categories
-        </h2>
-        <p className="mt-3 text-lg text-muted-foreground/80 sm:text-center sm:text-2xl">
-          Enhance your strategy with intelligent tools designed for success.
-        </p>
-        <div className="mt-12 grid gap-6 sm:mt-18 sm:gap-y-8 md:grid-cols-2 lg:grid-cols-3">
-          {features.map((feature, index) => (
-            <Link href="#" key={index}>
-              <div className="-mx-2 flex max-w-lg items-center gap-6 rounded-lg sm:mx-0">
-                <div className="aspect-square h-24 shrink-0 overflow-hidden rounded-lg border border-border/20 bg-muted">
-                  <img
-                    alt=""
-                    className="size-full object-cover"
-                    height={96}
-                    src={feature.image}
-                    width={96}
-                  />
+    <section className="py-28 relative overflow-hidden border-y border-border/60 bg-muted/30">
+      <div className="mx-auto max-w-(--breakpoint-xl) px-4 sm:px-6 lg:px-8">
+        <div className="text-center max-w-2xl mx-auto mb-20">
+          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">Subjects</span>
+          <h2 className="text-4xl sm:text-5xl font-heading font-semibold leading-tight text-foreground mt-4">
+            Find Your Perfect Subject
+          </h2>
+          <p className="mt-4 text-lg text-muted-foreground">
+            Browse expert tutors by subject — from coding and languages to math, science, and exam preparation.
+          </p>
+        </div>
+
+        <div className="space-y-5">
+          {categories.map((cat, idx) => (
+            <Link
+              key={cat.title}
+              href={cat.link}
+              className="group relative flex flex-col sm:flex-row sm:items-center justify-between gap-5 sm:gap-8 p-6 sm:p-8 rounded-2xl border bg-card hover:shadow-xl hover:-translate-y-1 hover:border-primary/20 transition-all duration-300 overflow-hidden"
+            >
+              {/* Left accent bar */}
+              <div className={`absolute left-0 top-0 bottom-0 w-1 rounded-r-full opacity-60 group-hover:opacity-100 transition-opacity ${cat.color}`} />
+
+              <div className="flex-1 pl-3 sm:pl-4">
+                <span className="text-xs font-semibold uppercase tracking-[0.15em] text-muted-foreground">
+                  {"0" + (idx + 1)}
+                </span>
+                <h3 className="text-2xl sm:text-3xl font-heading font-semibold text-foreground group-hover:text-primary transition-colors mt-1">
+                  {cat.title}
+                </h3>
+                <p className="text-sm text-muted-foreground mt-2 max-w-xl leading-relaxed">
+                  {cat.description}
+                </p>
+                <div className="flex flex-wrap gap-2 mt-4">
+                  {cat.tags.map((tag) => (
+                    <span key={tag} className="inline-flex text-xs px-3 py-1.5 rounded-full bg-muted text-muted-foreground font-medium">
+                      {tag}
+                    </span>
+                  ))}
                 </div>
-                <div className="">
-                  <span className="font-medium text-lg tracking-[-0.015em]">
-                    {feature.title}
-                  </span>
-                  <p className="mt-1 text-pretty text-muted-foreground">
-                    {feature.description}
-                  </p>
-                </div>
+              </div>
+
+              <div className="shrink-0 flex items-center gap-2 text-primary font-semibold text-sm pl-3 sm:pl-0">
+                <span>Explore</span>
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </div>
             </Link>
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
-
-export default Categories;

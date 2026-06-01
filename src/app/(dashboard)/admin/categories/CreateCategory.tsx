@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import type { Category } from "./page";
 
 function CreateCategory({
   editingCategory,

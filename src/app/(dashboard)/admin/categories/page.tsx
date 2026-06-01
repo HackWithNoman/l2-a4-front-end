@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import CreateCategory from "./CreateCategory";
 
-type Category = {
+export type Category = {
   id: number;
   name: string;
   description: string;
@@ -18,7 +18,7 @@ type Props = {
 
 export default function page() {
   const [categories, setCategories] = useState<Category[]>([]);
-  const [editingCategory, setEditingCategory] = useState(null);
+  const [editingCategory, setEditingCategory] = useState<Category | null>(null);
 
   useEffect(() => {
     async function fetchCategories() {
@@ -189,7 +189,6 @@ export default function page() {
         </div>
 
         <CreateCategory
-          categories={categories}
           setCategories={setCategories}
           editingCategory={editingCategory}
           setEditingCategory={setEditingCategory}

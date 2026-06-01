@@ -1,21 +1,35 @@
-import Categories from "@/components/public/home/categories";
-import CTA from "@/components/public/home/cta";
-import Hero from "@/components/public/home/hero";
-import HowItWorks from "@/components/public/home/how-It-works";
-import Stats from "@/components/public/home/stats";
-import Team from "@/components/public/home/team";
-import Testimonials from "@/components/public/home/testimonials";
+import { Hero } from "@/components/public/home/hero";
+import { Categories } from "@/components/public/home/categories";
+import { HowItWorks } from "@/components/public/home/how-it-works";
+import { FeaturedTutors } from "@/components/public/home/featured-tutors";
+import { Benefits } from "@/components/public/home/benefits";
+import { Testimonials } from "@/components/public/home/testimonials";
+import { CallToAction } from "@/components/public/home/cta";
 
 export default function Home() {
   return (
-    <div className="">
+    <div className="flex flex-col min-h-screen">
+      {/* Hero Banner Section */}
       <Hero />
-      <Team />
+
+      {/* Main Study Pillars Categories Section */}
       <Categories />
+
+      {/* Interactive Tabs How It Works Section */}
       <HowItWorks />
+
+      {/* Verified Educator Featured Profiles */}
+      <FeaturedTutors />
+
+      {/* Unique Technology Platform Benefits */}
+      <Benefits />
+
+      {/* Student/Tutor Success Testimonials Section */}
       <Testimonials />
-      <Stats />
-      <CTA />
+
+      {/* Final Action Call to Action Banner */}
+      <CallToAction />
     </div>
   );
 }
+

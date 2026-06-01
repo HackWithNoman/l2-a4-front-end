@@ -1,33 +1,60 @@
-import { ArrowUpRight } from "lucide-react";
+"use client";
+
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { ArrowRight, GraduationCap, Search, Sparkles } from "lucide-react";
 
-const CTA = () => {
+export const CallToAction = () => {
   return (
-    <div className="px-0 py-16 sm:px-6">
-      <div className="relative mx-auto max-w-5xl overflow-hidden sm:rounded-xl sm:shadow-lg dark:border dark:border-border/80">
-        <img
-          alt=""
-          className="absolute inset-0 size-full object-cover"
-          src="/ascii-art.png"
-        />
+    <section className="py-28 relative overflow-hidden">
+      <div className="mx-auto max-w-(--breakpoint-xl) px-4 sm:px-6 lg:px-8">
+        <div className="relative overflow-hidden rounded-2xl bg-foreground text-background px-8 py-16 sm:px-16 sm:py-20 shadow-xl">
+          {/* Subtle gradient overlay instead of solid */}
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent" />
+          <div className="absolute top-0 right-0 w-96 h-96 bg-primary/15 rounded-full blur-[120px] pointer-events-none" />
 
-        <div className="relative isolate bg-linear-to-r from-black to-black/50 px-10 py-14">
-          <h2 className="font-satoshi font-semibold text-4xl text-white tracking-tight sm:text-5xl">
-            Learn Or Teach
-          </h2>
-          <p className="mt-4 max-w-md text-lg text-white/85 md:text-xl">
-            Get seamless access to everything you need, right from your computer or mobile device.
-          </p>
-          <Button
-            className="mt-10 bg-white text-black ring-4 ring-white/30 hover:bg-white/90"
-            size="lg"
-          >
-            Sign Up Now <ArrowUpRight />
-          </Button>
+          <div className="max-w-2xl mx-auto text-center relative z-10">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-background/10 text-background text-sm font-medium mb-8 border border-background/20">
+              <Sparkles className="w-4 h-4 text-amber-400" />
+              <span>Start Your Learning Journey</span>
+            </div>
+
+            <h2 className="text-4xl sm:text-5xl font-heading font-semibold leading-tight">
+              Ready to Master Any Subject?
+            </h2>
+            <p className="mt-6 text-lg text-background/70 max-w-lg mx-auto leading-relaxed">
+              Join thousands of learners and educators on SkillBridge. Search and filter tutors by subject, price, and rating. Book sessions instantly and track your progress.
+            </p>
+
+            <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+              <Button size="lg" variant="secondary" className="rounded-full px-8 font-semibold" asChild>
+                <Link href="/tutors">
+                  <Search className="w-4 h-4" />
+                  <span>Search & Discover Tutors</span>
+                  <ArrowRight className="w-4 h-4 ml-1" />
+                </Link>
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="rounded-full border-background/20 bg-background/5 text-background hover:bg-background/10 px-8 font-semibold"
+                asChild
+              >
+                <Link href="/signUp?role=tutor">
+                  <GraduationCap className="w-4 h-4" />
+                  <span>Become a Verified Tutor</span>
+                </Link>
+              </Button>
+            </div>
+
+            <div className="mt-10 flex flex-wrap justify-center gap-x-10 gap-y-3 text-sm text-background/60 font-medium">
+              <span>Search by subject, price & rating</span>
+              <span>Instant booking & real-time availability</span>
+              <span>Personal learning dashboard</span>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
-
-export default CTA;
