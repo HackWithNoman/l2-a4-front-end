@@ -17,6 +17,7 @@ import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
 import { Logo } from "@/components/public/signin/logo";
 import { useRouter } from "next/navigation";
+import { authService } from "@/services/auth.service";
 
 const formSchema = z.object({
   email: z.string().email(),
@@ -35,27 +36,12 @@ const SignIn = () => {
   const router = useRouter();
 
   const onSubmit = async (data: z.infer<typeof formSchema>) => {
-    console.log(`${process.env.NEXT_PUBLIC_API_URL}/auth/login`);
     try {
-      const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/auth/login`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          credentials: "include",
-          body: JSON.stringify(data),
-        },
-      );
+      const res = await authService.login(data.email, data.password);
 
-      const result = await response.json();
+      console.log(res);
 
-      if (!response.ok) {
-        throw new Error(result.message);
-      }
-
-      router.push("/dashboard");
+      // router.push("/dashboard");
     } catch (error) {
       console.error(error);
     }

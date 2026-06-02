@@ -10,14 +10,16 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils"; // shadcn's standard utility for class merging
 import { useState } from "react";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
+import { authService } from "@/services/auth.service";
 
 interface SidebarProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 export function Sidebar({ className }: SidebarProps) {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const pathname = usePathname();
+  const router = useRouter();
 
   const navItems = [
     {
@@ -45,6 +47,11 @@ export function Sidebar({ className }: SidebarProps) {
       active: pathname === "/admin/categories",
     },
   ];
+
+  const handleLogOut = async () => {
+    await authService.logOut();
+    router.replace("/login");
+  };
 
   return (
     <div
@@ -118,6 +125,7 @@ export function Sidebar({ className }: SidebarProps) {
       {/* Footer / User Profile Section */}
       <div className="border-t border-border pt-4">
         <button
+          onClick={handleLogOut}
           className={cn(
             "w-full flex items-center gap-3 px-3 py-2.5 rounded-md text-sm font-medium text-destructive hover:bg-destructive/10 transition-colors group relative",
           )}

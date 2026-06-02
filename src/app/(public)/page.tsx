@@ -5,8 +5,11 @@ import { FeaturedTutors } from "@/components/public/home/featured-tutors";
 import { Benefits } from "@/components/public/home/benefits";
 import { Testimonials } from "@/components/public/home/testimonials";
 import { CallToAction } from "@/components/public/home/cta";
+import { authService } from "@/services/auth.service";
 
-export default function Home() {
+export default async function Home() {
+  console.log(await authService.getMe());
+
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Banner Section */}
@@ -32,4 +35,3 @@ export default function Home() {
     </div>
   );
 }
-

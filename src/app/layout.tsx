@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Fraunces, Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { AuthProvider } from "@/providers/AuthProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -21,7 +22,8 @@ const fraunces = Fraunces({
 
 export const metadata: Metadata = {
   title: "Skillbridge | Connect with Expert Tutors, Learn Anything",
-  description: "SkillBridge is a robust full-stack marketplace that bridges the gap between eager learners and expert educators.",
+  description:
+    "SkillBridge is a robust full-stack marketplace that bridges the gap between eager learners and expert educators.",
 };
 
 export default function RootLayout({
@@ -35,7 +37,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${fraunces.variable} antialiased`}
       >
         <TooltipProvider>
-          {children}
+          <AuthProvider>{children}</AuthProvider>
         </TooltipProvider>
       </body>
     </html>
